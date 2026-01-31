@@ -1,9 +1,9 @@
 import React from 'react';
-import { SavingsSummary as SavingsSummaryType } from '../types';
+import { Summary } from '../types';
 import './SavingsSummary.css';
 
 interface SavingsSummaryProps {
-  summary: SavingsSummaryType | null;
+  summary: Summary | null;
 }
 
 const SavingsSummary: React.FC<SavingsSummaryProps> = ({ summary }) => {
@@ -13,13 +13,17 @@ const SavingsSummary: React.FC<SavingsSummaryProps> = ({ summary }) => {
 
   return (
     <div className="savings-summary">
-      <div className="summary-card total">
-        <div className="summary-label">Total Savings</div>
-        <div className="summary-value">${summary.total_savings.toFixed(2)}</div>
+      <div className={`summary-card balance ${summary.balance >= 0 ? 'positive' : 'negative'}`}>
+        <div className="summary-label">balance</div>
+        <div className="summary-value">${summary.balance.toFixed(2)}</div>
       </div>
-      <div className="summary-card transactions">
-        <div className="summary-label">Transactions</div>
-        <div className="summary-value">{summary.number_of_transactions}</div>
+      <div className="summary-card income">
+        <div className="summary-label">income</div>
+        <div className="summary-value">${summary.income.toFixed(2)}</div>
+      </div>
+      <div className="summary-card expense">
+        <div className="summary-label">expenses</div>
+        <div className="summary-value">${summary.expenses.toFixed(2)}</div>
       </div>
     </div>
   );

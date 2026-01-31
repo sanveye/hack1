@@ -1,0 +1,160 @@
+.welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 1rem;
+}
+
+.welcome-modal {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.6), 0 0 80px rgba(255, 255, 255, 0.4), 0 0 120px rgba(255, 255, 255, 0.2), 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  animation: fadeIn 0.5s ease;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.welcome-modal h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
+}
+
+.welcome-subtitle {
+  margin: 0 0 2.5rem 0;
+  font-size: 1.1rem;
+  color: white;
+  opacity: 0.95;
+}
+
+.welcome-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.input-group input {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: rgba(232, 102, 234, 0.8);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px rgba(232, 102, 234, 0.3);
+}
+
+.input-group input::placeholder {
+  color: #999;
+}
+
+.balance-input-wrapper {
+  position: relative;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+  pointer-events: none;
+}
+
+.balance-input-wrapper input {
+  padding-left: 2.5rem;
+}
+
+.error-message {
+  color: #ff3b3b;
+  background: rgba(255, 59, 59, 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 59, 59, 0.3);
+  margin: 0;
+}
+
+.welcome-button {
+  background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.welcome-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(232, 102, 234, 0.5);
+}
+
+.welcome-button:active {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .welcome-modal {
+    padding: 2rem;
+    max-width: 100%;
+  }
+
+  .welcome-modal h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+}
+

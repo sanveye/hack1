@@ -3,7 +3,7 @@
 }
 
 .savings-list h2 {
-  color: #2c3e50;
+  color: #ffffff;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -25,26 +25,66 @@
 .transaction-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 1rem;
-  background: #f8f9fa;
+  background: rgba(248, 249, 250, 0.7);
   border-left: 4px solid #667eea;
   border-radius: 4px;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.transaction-item.income {
+  border-left-color: #27ae60;
+  box-shadow: 0 4px 15px rgba(39, 174, 96, 0.15);
+}
+
+.transaction-item.expense {
+  border-left-color: #e74c3c;
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.15);
 }
 
 .transaction-item:hover {
-  background-color: #f0f2f5;
+  background-color: rgba(240, 242, 245, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+}
+
+.transaction-item.income:hover {
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.25);
+}
+
+.transaction-item.expense:hover {
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.25);
 }
 
 .transaction-left {
   flex: 1;
+  display: flex;
+  gap: 1rem;
 }
 
-.transaction-date {
+.transaction-icon {
+  font-size: 1.5rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-type {
   font-weight: 600;
   color: #2c3e50;
   font-size: 0.95rem;
+}
+
+.transaction-date {
+  color: #666;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
 }
 
 .transaction-comments {
@@ -60,13 +100,28 @@
 }
 
 .transaction-amount {
-  color: #27ae60;
   font-weight: bold;
   font-size: 1.1rem;
 }
 
-.transaction-total {
-  color: #667eea;
+.transaction-amount.income {
+  color: #27ae60;
+}
+
+.transaction-amount.expense {
+  color: #e74c3c;
+}
+
+.transaction-balance {
   font-size: 0.85rem;
   margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.transaction-balance.positive {
+  color: #27ae60;
+}
+
+.transaction-balance.negative {
+  color: #e74c3c;
 }

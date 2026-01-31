@@ -1,42 +1,117 @@
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
+  /*entire background color*/
+  backdrop-filter: blur(5px);
 }
 
 .App-header {
-  background-color: #2c3e50;
+  background-color: transparent;
   color: white;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /*overall header*/
+}
+
+.greeting-text {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #333;
+  text-shadow: none;
+  animation: fadeIn 0.8s ease;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .App-header h1 {
   margin: 0;
-  font-size: 2.5rem;
-  font-weight: bold;
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
 }
 
 .App-header p {
   margin: 0.5rem 0 0 0;
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   opacity: 0.9;
 }
 
-.container {
+.app-layout {
   display: flex;
-  justify-content: center;
+  gap: 2rem;
   padding: 2rem 1rem;
   min-height: calc(100vh - 120px);
+  max-width: 1400px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+
+
+.container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  max-width: 700px;
+  margin-right: 225px;
+  z-index: 1;
+}
+
+.penguin-peek {
+  position: absolute;
+  top: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 175px;
+  height: auto;
+  object-fit: contain;
+  z-index: 10;
+  margin-left: -200px;
 }
 
 .content {
-  background: white;
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 10px;
   padding: 2rem;
-  max-width: 600px;
   width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 100px rgba(255, 255, 255, 0.2), 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .app-layout {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .container {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .penguin-peek {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -46,6 +121,66 @@
 
   .content {
     padding: 1.5rem;
-    margin: 0 0.5rem;
+    margin: 0;
   }
+
+  .app-layout {
+    padding: 1rem;
+  }
+
+  .penguin-peek {
+    width: 120px;
+    top: -100px;
+  }
+}
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-modal {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 400px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 100px rgba(255, 255, 255, 0.2), 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.popup-modal p {
+  color: #333;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.popup-modal button {
+  background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.popup-modal button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(232, 102, 234, 0.4);
+}
+
+.popup-modal button:active {
+  transform: translateY(0);
 }

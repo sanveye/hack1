@@ -1,14 +1,17 @@
-export interface Saving {
+export interface Transaction {
   id: number;
   amount: number;
+  transaction_type: 'income' | 'expense';
   date: string;
   time: string;
   comments: string;
-  total_savings: number;
+  spent_on: string;
+  balance: number;
 }
 
-export interface SavingsSummary {
-  total_savings: number;
-  number_of_transactions: number;
-  last_transaction?: Saving;
+export interface Summary {
+  balance: number;
+  income: number;
+  expenses: number;
+  transaction_count: number;
 }

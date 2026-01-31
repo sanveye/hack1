@@ -6,20 +6,32 @@
 }
 
 .summary-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 1.5rem;
   border-radius: 8px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.summary-card.total {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.summary-card.balance {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, #89CFF0 0%, #4A90E2 100%);
 }
 
-.summary-card.transactions {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.summary-card.balance.positive {
+  background: rgba(0, 180, 100, 0.7);
+}
+
+.summary-card.income {
+  background: rgba(0, 180, 100, 0.7);
+}
+
+.summary-card.balance.negative {
+  background: rgba(255, 60, 60, 0.7);
+}
+
+.summary-card.expense {
+  background: rgba(255, 60, 60, 0.7);
 }
 
 .summary-label {
@@ -32,6 +44,12 @@
 .summary-value {
   font-size: 1.8rem;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .savings-summary {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (max-width: 600px) {

@@ -1,0 +1,135 @@
+.financial-tips-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.tip-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatIn 0.6s ease forwards;
+  opacity: 0;
+  pointer-events: all;
+}
+
+.tip-card:nth-child(1) {
+  top: 25%;
+  right: 8%;
+  animation-delay: 0.1s;
+}
+
+.tip-card:nth-child(2) {
+  top: 50%;
+  right: 8%;
+  animation-delay: 0.2s;
+}
+
+.tip-card:nth-child(3) {
+  top: 55%;
+  left: 8%;
+  animation-delay: 0.3s;
+}
+
+@keyframes floatIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tip-penguin {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: -10px;
+  z-index: 2;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.tip-card:hover .tip-penguin {
+  transform: scale(1.1) translateY(-5px);
+}
+
+.tip-box {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem 1rem 1rem 1rem;
+  min-width: 200px;
+  max-width: 250px;
+  box-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.4),
+    0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.tip-card:hover .tip-box {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 0 25px rgba(255, 255, 255, 0.7),
+    0 0 50px rgba(255, 255, 255, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.tip-box p {
+  margin: 0;
+  color: #333;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .financial-tips-container {
+    gap: 1rem;
+  }
+
+  .tip-box {
+    min-width: 180px;
+    max-width: 200px;
+    padding: 1.2rem 0.8rem 0.8rem 0.8rem;
+  }
+
+  .tip-penguin {
+    width: 70px;
+    height: 70px;
+  }
+
+  .tip-box p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .financial-tips-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .tip-card {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .tip-box {
+    max-width: 100%;
+  }
+}
