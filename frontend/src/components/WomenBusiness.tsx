@@ -6,7 +6,6 @@ interface Business {
   name: string;
   category: string;
   description: string;
-  location: string;
   image?: string;
   website?: string;
 }
@@ -16,30 +15,99 @@ const WomenBusiness: React.FC = () => {
   const [businesses] = useState<Business[]>([
     {
       id: 1,
-      name: 'Bluebird Bakery',
-      category: 'restaurants',
-      description: 'Fresh pastries, sandwiches, and locally roasted coffee. Cozy spot for study sessions.',
-      location: 'Seattle, WA',
-      image: '/images/bluebird.jpg',
-      website: 'https://bluebirdbakery.example'
+      name: 'Glossier',
+      category: 'makeup',
+      description: 'Glossier is a beauty brand that focuses on simple, natural-looking makeup and skincare.',
+      image: 'glossier.png',
+      website: 'https://www.glossier.com'
     },
     {
       id: 2,
-      name: 'Luna Cosmetics',
+      name: 'Spanx',
       category: 'makeup',
       description: 'Cruelty-free, vegan makeup made with natural ingredients.',
-      location: 'Portland, OR',
-      image: '/images/luna.png',
-      website: 'https://luna-cosmetics.example'
+      image: 'spanx.png',
+      website: 'https://www.spanx.com'
     },
     {
       id: 3,
-      name: 'Stride Athletics',
-      category: 'fitness',
-      description: 'Community-first fitness studio offering barre, pilates, and HIIT classes.',
-      location: 'Austin, TX',
-      image: '/images/stride.jpg',
-      website: 'https://strideathletics.example'
+      name: 'Rhode',
+      category: 'makeup',
+      description: 'Rhode is a skincare brand founded by Hailey Bieber that focuses on simple, effective products for daily use.',
+      image: 'rhode.png',
+      website: 'https://rhode.com'
+    },
+    {
+      id: 4,
+      name: 'In-N-Out Burger',
+      category: 'restaurants',
+      description: 'A popular fast-food chain known for its fresh ingredients and secret menu.',
+      image: 'inout.png',
+      website: 'https://www.in-n-out.com'
+    },
+    {
+      id: 5,
+      name: 'Merle Norman Cosmetics',
+      category: 'makeup',
+      description: 'A cosmetics company known for its high-quality skincare and makeup products.',
+      image: 'merlenorman.png',
+      website: 'https://www.merlenorman.com'
+    },
+    {
+      id: 6,
+      name: 'Fenty Beauty',
+      category: 'makeup',
+      description: 'Fenty is a beauty brand known for its wide range of inclusive makeup shades designed for all skin tones',
+      image: 'fenty.png',
+      website: 'https://www.fentybeauty.com'
+    },
+    {
+      id: 7,
+      name: 'Rare Beauty',
+      category: 'makeup',
+      description: 'Rare Beauty is a cosmetics brand founded by Selena Gomez that focuses on self-expression and inclusivity.',
+      image: 'rarebeauty.png',
+      website: 'https://www.rarebeauty.com'
+    },
+    {
+      id: 8,
+      name: 'Chanel',
+      category: 'makeup',
+      description: 'Chanel is a luxury fashion and beauty brand known for its high-end makeup, skincare, perfumes, and style.',
+      image: 'chanel.png',
+      website: 'https://www.chanel.com'
+    },
+    {
+      id: 9,
+      name: 'Primrose Bakery',
+      category: 'restaurants',
+      description: 'A family owned bakery known for its cupcakes, cakes, and sweet treats made with classic recipes.',
+      image: 'primrose.png',
+      website: 'https://www.primrosebakery.com'
+    },
+    {
+      id: 10,
+      name: 'Blogilates',
+      category: 'shopping',
+      description: 'A fitness and lifestyle brand that has activewear, workout plans, and wellness products.',
+      image: 'blogilates.png',
+      website: 'https://www.blogilates.com'
+    },
+    {
+      id: 11,
+      name: 'Reformation',
+      category: 'shopping',
+      description: 'A women-owned sustainable clothing brand known for trendy styles and eco-friendly practices.',
+      image: 'reformation.png',
+      website: 'https://www.thereformation.com'
+    },
+    {
+      id: 12,
+      name: 'Reformation',
+      category: 'shopping',
+      description: 'A women-owned sustainable clothing brand known for trendy styles and eco-friendly practices.',
+      image: 'reformation.png',
+      website: 'https://www.thereformation.com'
     }
   ]);
 
@@ -85,7 +153,6 @@ const WomenBusiness: React.FC = () => {
                 <h3 className="business-name">{business.name}</h3>
                 <p className="business-category">{business.category}</p>
                 <p className="business-description">{business.description}</p>
-                <p className="business-location">📍 {business.location}</p>
                 {business.website && (
                   <a className="business-website" href={business.website} target="_blank" rel="noopener noreferrer">
                     Visit site

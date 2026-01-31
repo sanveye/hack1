@@ -11,6 +11,8 @@
   padding: 2rem;
   text-align: center;
   /*overall header*/
+  position: relative;
+  z-index: 30;
 }
 
 .greeting-text {
@@ -40,6 +42,16 @@
   font-weight: 900;
   color: white;
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5), 0 0 60px rgba(255, 255, 255, 0.3);
+}
+
+.app-logo {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 88px; /* slightly larger */
+  height: auto;
+  object-fit: contain;
+  z-index: 20;
 }
 
 .App-header p {
@@ -75,7 +87,7 @@
 
 .penguin-peek {
   position: absolute;
-  top: -140px;
+  top: -100px;
   left: 50%;
   transform: translateX(-50%);
   width: 175px;

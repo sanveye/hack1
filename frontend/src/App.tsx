@@ -180,6 +180,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <img src="/logo.png" alt="Stash logo" className="app-logo" />
         <h1>stash</h1>
         <p>{currentScreen === 'transactions' ? 'track your income and expenses' : 'daily finance quests'}</p>
       </header>
