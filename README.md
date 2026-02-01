@@ -1,13 +1,19 @@
-# Stash (An application for finance and budgeting)
-1. Frontend should be in React and typescript
-2. Backend should be in python with fastapi
-3. Use in memory database 
+# Stash (waddle your way to wealth)
+
+## Code Details
+1. The frontend is in React and typescript
+2. The backend is in python with fastapi
+3. Used an in-memory database 
 
 ## Application Details
-* The application tracks the pocket money savings for kids.
-* create backend apis to 
-    - save money (amount, date and time, comments, total savings)
-    - get details: fetch all the savings.
+* A financial and budgeting app focused on consistency rather than perfection
+* Daily streak
+* Short, easy, finance-based questions
+* daily engagement
+* penguin-themed design
 
-* create frontend to display it nicely
-* create a screen to add savings
+## Women-Owned Section
+* information about women-owned buisinesses
+* supporting women entrepreneurs
+* promoting equality
+* socially responsible spending choices
