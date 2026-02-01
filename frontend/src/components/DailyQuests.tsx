@@ -16,6 +16,8 @@ interface QuestionState {
 
 const DailyQuests: React.FC<DailyQuestsProps> = ({ streak, bestStreak, onAnswered }) => {
   const [currentQuestion, setCurrentQuestion] = useState(financeQuestions[0]);
+  const [shuffledAnswers, setShuffledAnswers] = useState<string[]>(() => financeQuestions[0].answers.slice());
+  const [shuffledCorrectIndex, setShuffledCorrectIndex] = useState<number>(financeQuestions[0].correctAnswer);
   const [questionState, setQuestionState] = useState<QuestionState>({
     answered: false,
     selectedAnswer: null,
@@ -26,7 +28,7 @@ const DailyQuests: React.FC<DailyQuestsProps> = ({ streak, bestStreak, onAnswere
   const handleAnswerClick = (answerIndex: number) => {
     if (questionState.answered) return;
 
-    const isCorrect = answerIndex === currentQuestion.correctAnswer;
+    const isCorrect = answerIndex === shuffledCorrectIndex;
     setQuestionState({
       answered: true,
       selectedAnswer: answerIndex,
@@ -52,11 +54,27 @@ const DailyQuests: React.FC<DailyQuestsProps> = ({ streak, bestStreak, onAnswere
   const handleNextQuestion = () => {
     const randomQuestion = financeQuestions[Math.floor(Math.random() * financeQuestions.length)];
     setCurrentQuestion(randomQuestion);
+    // prepare shuffled answers for the new question
+    const { answers: shuffled, correctIndex } = prepareShuffledAnswers(randomQuestion);
+    setShuffledAnswers(shuffled);
+    setShuffledCorrectIndex(correctIndex);
     setQuestionState({
       answered: false,
       selectedAnswer: null,
       isCorrect: false,
     });
+  };
+
+  // Fisher-Yates shuffle that also tracks new index of the original correct answer
+  const prepareShuffledAnswers = (question: typeof financeQuestions[0]) => {
+    const arr = question.answers.map((a, i) => ({ text: a, origIndex: i }));
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    const answers = arr.map(x => x.text);
+    const correctIndex = arr.findIndex(x => x.origIndex === question.correctAnswer);
+    return { answers, correctIndex };
   };
 
   return (
@@ -83,12 +101,12 @@ const DailyQuests: React.FC<DailyQuestsProps> = ({ streak, bestStreak, onAnswere
         <h3>{currentQuestion.question}</h3>
 
         <div className="answers-grid">
-          {currentQuestion.answers.map((answer, index) => (
+          {shuffledAnswers.map((answer, index) => (
             <button
               key={index}
               className={`answer-button ${
                 questionState.selectedAnswer === index ? 'selected' : ''
-              } ${questionState.answered && index === currentQuestion.correctAnswer ? 'correct' : ''} ${
+              } ${questionState.answered && index === shuffledCorrectIndex ? 'correct' : ''} ${
                 questionState.answered &&
                 questionState.selectedAnswer === index &&
                 !questionState.isCorrect
