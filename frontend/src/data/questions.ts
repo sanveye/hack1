@@ -11,12 +11,12 @@ export const financeQuestions: Question[] = [
     id: 1,
     question: "What is inflation?",
     answers: [
-      "When prices of goods and services increase over time",
+      "When interest rates go up",
       "When prices of goods and services decrease over time",
       "When the government prints more money",
-      "When interest rates go up"
+      "When prices of goods and services increase over time",
     ],
-    correctAnswer: 0,
+    correctAnswer: 3,
     explanation: "Inflation is when the general level of prices for goods and services rises, reducing the purchasing power of money over time."
   },
   {

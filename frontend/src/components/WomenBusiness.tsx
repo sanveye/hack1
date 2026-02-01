@@ -124,6 +124,30 @@ const WomenBusiness: React.FC = () => {
       description: "An ice cream brand known for unique, high-quality ice cream flavors made with fresh ingredients.",
       image: 'jenis.png',
       website: 'https://jenis.com'
+    },
+    {
+      id: 15,
+      name: "Wild Wonder",
+      category: 'restaurants',
+      description: "A women-founded sparkling drink brand that combines fruit flavors with prebiotics and probiotics for gut health.",
+      image: 'wildwonder.png',
+      website: 'https://drinkwildwonder.com'
+    },
+    {
+      id: 16,
+      name: "Partake Foods",
+      category: 'restaurants',
+      description: "A women-founded food brand that offers allergen-friendly cookies and snacks made with high-quality ingredients.",
+      image: 'partake.png',
+      website: 'https://partakefoods.com'
+    },
+    {
+      id: 17,
+      name: "Milk",
+      category: 'restaurants',
+      description: "A sweets and confections brand famous for creative desserts and baked goods.",
+      image: 'milk.png',
+      website: 'https://milk.com'
     }
 
   ]);
