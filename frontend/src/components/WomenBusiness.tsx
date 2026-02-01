@@ -103,12 +103,29 @@ const WomenBusiness: React.FC = () => {
     },
     {
       id: 12,
-      name: 'Reformation',
+      name: 'Passion Lilie',
       category: 'shopping',
-      description: 'A women-owned sustainable clothing brand known for trendy styles and eco-friendly practices.',
-      image: 'reformation.png',
-      website: 'https://www.thereformation.com'
+      description: 'A women-owned ethical fashion brand that creates handmade clothing using sustainable practices.',
+      image: 'passionlilie.png',
+      website: 'https://www.passionlilie.com'
+    },
+    {
+      id: 13,
+      name: 'Cuyana',
+      category: 'shopping',
+      description: 'A women-founded clothing and accessories brand that focuses on timeless designs and sustainable, high-quality materials.',
+      image: 'cuyana.png',
+      website: 'https://www.cuyana.com'
+    },
+    {
+      id: 14,
+      name: "Jeni's Splendid Ice Creams",
+      category: 'restaurants',
+      description: "An ice cream brand known for unique, high-quality ice cream flavors made with fresh ingredients.",
+      image: 'jenis.png',
+      website: 'https://jenis.com'
     }
+
   ]);
 
   const categories = [
@@ -160,7 +177,10 @@ const WomenBusiness: React.FC = () => {
                 )}
               </div>
               <div className="business-card-image">
-                <img src={business.image || '/images/placeholder.png'} alt={business.name} />
+                <img
+                  src={business.image ? (business.image.startsWith('/') ? business.image : `/${business.image}`) : '/penguincredit.png'}
+                  alt={business.name}
+                />
               </div>
             </div>
           ))
